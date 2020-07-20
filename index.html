@@ -395,35 +395,16 @@
 
       
         
-          
-            <h2 id="一、搭建前提"><a href="#一、搭建前提" class="headerlink" title="一、搭建前提"></a>一、搭建前提</h2><p> 安装node.js（建议将安装镜像更换为国内镜像）</p>
+          <h2 id="一、搭建前提"><a href="#一、搭建前提" class="headerlink" title="一、搭建前提"></a>一、搭建前提</h2><p> 安装node.js（建议将安装镜像更换为国内镜像）</p>
 <p> 安装git，并配置好相关内容（配置本地git与GitHub的SSH Key）</p>
 <p> 注册并登录GitHub  </p>
-<h2 id="二、安装Hexo"><a href="#二、安装Hexo" class="headerlink" title="二、安装Hexo"></a>二、安装Hexo</h2><p>​    安装完git后，程序栏会出现 git bash，打开 git bash，输入以下命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-
-<p>​    -g 表示全局安装，-cli 表示命令行</p>
-<h2 id="三、本地搭建Hexo博客"><a href="#三、本地搭建Hexo博客" class="headerlink" title="三、本地搭建Hexo博客"></a>三、本地搭建Hexo博客</h2><p>​    完成第二步操作后，hexo已下载到本地</p>
-<p>​    在磁盘中选择一个位置新建文件夹来存放你的博客文件，如：D:\GitHubBLOG，在该文件夹下右键，点击 git bash here，输入以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init  &#x2F;&#x2F;本地生成hexo模板</span><br></pre></td></tr></table></figure>
-
-<p>​    继续输入命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server  &#x2F;&#x2F;打开服务</span><br></pre></td></tr></table></figure>
-
-<p>​    加载完成后，打开浏览器访问 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a>，即可看到hexo的默认主题博客页面</p>
-<h2 id="四、GitHub托管博客"><a href="#四、GitHub托管博客" class="headerlink" title="四、GitHub托管博客"></a>四、GitHub托管博客</h2><p>​    在操作本步骤之前需将本地 git 与 GitHub 间的 SSH Key 配置完成</p>
-<p>​    登录本人的 GitHub 账号，在 GitHub 中创建以当前用户名命名的项目（必须以用户名命名，我已经创建此仓库，只是为此次博客截图）</p>
-<p><img src="/images/pasted-1.png" alt="upload successful"></p>
-<p>​    打开新建存放博客的文件夹，找到 _config.yml 配置文件并打开，找到 deploy，添加如下内容，在添加内容过程中必须注意格式，冒号后面空格一定要加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: https:&#x2F;&#x2F;github.com&#x2F;MASK0117&#x2F;MASK0117.github.io.git  &#x2F;&#x2F;将此处更改为自己的仓库 HTTPS 地址</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/pasted-0.png" alt="upload successful">  </p>
-<p>​    更改完成后，执行以下命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save  &#x2F;&#x2F;安装部署插件</span><br><span class="line">$ hexo g  &#x2F;&#x2F;hexo generate 本地生成静态文件</span><br><span class="line">$ hexo d  &#x2F;&#x2F;hexo deploy 将本地文件推送至GitHub</span><br></pre></td></tr></table></figure>
-
-<p>​    访问<a href="http://MASK0117.github.io" target="_blank" rel="noopener">http://MASK0117.github.io</a></p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/07/20/%E4%BD%BF%E7%94%A8-Hexo-GitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
