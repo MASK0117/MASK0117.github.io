@@ -1,10 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hello World</title>
+    <url>/2020/07/19/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><a id="more"></a>
+
+<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>使用 Hexo+GitHub搭建个人博客教程</title>
     <url>/2020/07/20/%E4%BD%BF%E7%94%A8-Hexo-GitHub%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/</url>
     <content><![CDATA[<h2 id="一、搭建前提"><a href="#一、搭建前提" class="headerlink" title="一、搭建前提"></a>一、搭建前提</h2><p> 安装node.js（建议将安装镜像更换为国内镜像）</p>
-<p> 安装git，并配置好相关内容（配置本地git与GitHub的SSH Key）</p>
+<p> 安装git，并配置好相关内容 ,<a href="https://mask0117.github.io/2020/07/20/配置本地Git与GitHub的SSH-Key/" target="_blank" rel="noopener">配置本地git与GitHub的SSH Key</a></p>
 <p> 注册并登录GitHub  </p>
 <a id="more"></a>
 
@@ -31,11 +51,22 @@
 <p>​    更改完成后，执行以下命令</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save  &#x2F;&#x2F;安装部署插件</span><br><span class="line">$ hexo g  &#x2F;&#x2F;hexo generate 本地生成静态文件</span><br><span class="line">$ hexo d  &#x2F;&#x2F;hexo deploy 将本地文件推送至GitHub</span><br></pre></td></tr></table></figure>
 
-<p>​    访问<a href="http://MASK0117.github.io" target="_blank" rel="noopener">http://MASK0117.github.io</a></p>
+<p>​    访问<a href="https://MASK0117.github.io" target="_blank" rel="noopener">https://MASK0117.github.io</a></p>
 ]]></content>
       <categories>
         <category>Blog</category>
       </categories>
+  </entry>
+  <entry>
+    <title>配置本地Git与GitHub的SSH Key</title>
+    <url>/2020/07/20/%E9%85%8D%E7%BD%AE%E6%9C%AC%E5%9C%B0Git%E4%B8%8EGitHub%E7%9A%84SSH-Key/</url>
+    <content><![CDATA[<h2 id="配置SSH-Key"><a href="#配置SSH-Key" class="headerlink" title="配置SSH Key"></a>配置SSH Key</h2><p>  Git安装成功后，在桌面或程序栏中找到 Git Bash 打开，也可在桌面点击鼠  标右键打开 Git Bash<br>  在窗口中输入指令：<br>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C &quot;邮箱地址&quot;  &#x2F;&#x2F;填写你的GitHub注册邮箱</span><br></pre></td></tr></table></figure><br>  <a id="more"></a><br>  根据提示依次操作，可默认直接回车<br>  找到秘钥默认保存位置，在上述回车过程可找到（即 Enter file in which to save the key 选项后面路径）<br>  打开此目录，找到 id_rsa.pub 文件，用记事本打开并复制到粘贴板<br>  登录GitHub，进入主页 -&gt; Settings -&gt; SSH and GPG keys -&gt; New SSH key:  </p>
+<p><img src="/images/pasted-2.png" alt="upload successful"><br>将复制的内容粘贴在 key 栏中，title可任意命名，点击Add SSH Key，保存秘钥</p>
+<p><img src="/images/pasted-3.png" alt="upload successful"><br>上述操作完成后，进入 Git Bash 中，输入下列指令查看是否配置成功</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ ssh -T git@github.com  &#x2F;&#x2F;直接输入此命令，不用更改为自己邮箱地址</span><br></pre></td></tr></table></figure>
+<p>出现以下内容即为配置成功  </p>
+<p><img src="/images/pasted-4.png" alt="upload successful"><br>第一次配置有的可能在输入上个指令后需再输入 yes 后才会出现此内容，but 后的内容可不用理会，为了安全，默认不允许 shell 连接</p>
+]]></content>
   </entry>
   <entry>
     <title>Test</title>
@@ -44,25 +75,5 @@
       <categories>
         <category>Blog</category>
       </categories>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2020/07/19/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><a id="more"></a>
-
-<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-]]></content>
   </entry>
 </search>
