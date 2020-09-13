@@ -95,4 +95,32 @@
         <category>SSH Key</category>
       </categories>
   </entry>
+  <entry>
+    <title>Git常用命令</title>
+    <url>/2020/09/13/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h2 id="Gitee实现图床"><a href="#Gitee实现图床" class="headerlink" title="Gitee实现图床"></a>Gitee实现图床</h2><p>注册并登录Gitee，新建仓库， 仓库名称可随意命名  </p>
+<a id="more"></a>
+
+<p><img src="/images/pasted-11.png" alt="upload successful"><br>复制图中的地址</p>
+<p><img src="/images/pasted-12.png" alt="upload successful"><br>使用git命令将当前仓库克隆到本地文件夹中（进入当前文件夹的cmd中操作）  </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git clone 复制的地址</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/pasted-13.png" alt="upload successful"><br>文件夹中会出现此文件</p>
+<p><img src="/images/pasted-14.png" alt="upload successful"><br>依次进行如下操作<br>1、cmd中进入当前文件夹中</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd boom</span><br></pre></td></tr></table></figure>
+<p>2、在boom文件夹中新建images文件夹，将所要上传的图片放入images中后执行如下命令（添加当前目录所有文件到暂存区）</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git add .</span><br></pre></td></tr></table></figure>
+<p>3、执行命令如下（提交暂存区到仓库区）  </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git commit -m &quot;提交注释&quot;</span><br></pre></td></tr></table></figure>
+<p>4、执行命令（上传当前分支到远程仓库）  </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git push</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/pasted-17.png" alt="upload successful"><br>进入Gitee打开boom仓库，点击服务，Gitee Pages后，部署目录选择存放图片的文件夹，点击启动按钮</p>
+<p><img src="/images/pasted-18.png" alt="upload successful"><br>复制启动后网址（如图中出现的网址），在地址栏中粘贴复制网址加上图片文件名即可查看所存放图片文件。例：<a href="http://mask0117.gitee.io/boom/INFINITY.jpg" target="_blank" rel="noopener">http://mask0117.gitee.io/boom/INFINITY.jpg</a></p>
+<p><img src="/images/pasted-19.png" alt="upload successful"></p>
+]]></content>
+      <categories>
+        <category>Git命令</category>
+      </categories>
+  </entry>
 </search>
