@@ -1,6 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Git常用命令</title>
+    <url>/2020/09/13/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h2 id="Gitee实现图床"><a href="#Gitee实现图床" class="headerlink" title="Gitee实现图床"></a>Gitee实现图床</h2><p>注册并登录Gitee，新建仓库， 仓库名称可随意命名  </p>
+<a id="more"></a>
+
+<p><img src="/images/pasted-11.png" alt="upload successful"><br>复制图中的地址</p>
+<p><img src="/images/pasted-12.png" alt="upload successful"><br>使用git命令将当前仓库克隆到本地文件夹中（进入当前文件夹的cmd中操作）  </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git clone 复制的地址</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/pasted-13.png" alt="upload successful"><br>文件夹中会出现此文件</p>
+<p><img src="/images/pasted-14.png" alt="upload successful"><br>依次进行如下操作<br>1、cmd中进入当前文件夹中</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd boom</span><br></pre></td></tr></table></figure>
+<p>2、在boom文件夹中新建images文件夹，将所要上传的图片放入images中后执行如下命令（添加当前目录所有文件到暂存区）</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git add .</span><br></pre></td></tr></table></figure>
+<p>3、执行命令如下（提交暂存区到仓库区）  </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git commit -m &quot;提交注释&quot;</span><br></pre></td></tr></table></figure>
+<p>4、执行命令（上传当前分支到远程仓库）  </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git push</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/pasted-17.png" alt="upload successful"><br>进入Gitee打开boom仓库，点击服务，Gitee Pages后，部署目录选择存放图片的文件夹，点击启动按钮</p>
+<p><img src="/images/pasted-18.png" alt="upload successful"><br>复制启动后网址（如图中出现的网址），在地址栏中粘贴复制网址加上图片文件名即可查看所存放图片文件。例：<a href="http://mask0117.gitee.io/boom/INFINITY.jpg" target="_blank" rel="noopener">http://mask0117.gitee.io/boom/INFINITY.jpg</a></p>
+<p><img src="/images/pasted-19.png" alt="upload successful"></p>
+]]></content>
+      <categories>
+        <category>Git命令</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>List集合递归转树结构</title>
+    <url>/2022/04/16/List%E9%9B%86%E5%90%88%E9%80%92%E5%BD%92%E8%BD%AC%E6%A0%91%E7%BB%93%E6%9E%84/</url>
+    <content><![CDATA[<h3 id="List转树结构"><a href="#List转树结构" class="headerlink" title="List转树结构"></a>List转树结构</h3><a id="more"></a>
+<p>实体类Test，图中只列举部分属性。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class Test&#123;</span><br><span class="line">	private Integer id;</span><br><span class="line">    private Integer pId;</span><br><span class="line">    private List&lt;Test&gt; children;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>实现代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public List&lt;Test&gt; listToTree(List&lt;Test&gt; list)&#123;</span><br><span class="line">	List&lt;Test&gt; treeList &#x3D; new ArrayList&lt;&gt;();</span><br><span class="line">    List&lt;Test&gt; rootList &#x3D; list.stream.filter(v -&gt; v.getPId() &#x3D;&#x3D; 0).collect(Collectors.toList());  &#x2F;&#x2F;获取集合中根节点，pId为0的数据为根节点。</span><br><span class="line">    rootList.forEach(tree -&gt; treeList.add(findChikdren(tree,list)));</span><br><span class="line">    return treeList;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public Test findChildren(Test test,List&lt;Test&gt; list)&#123;</span><br><span class="line">	for(Test t:list)&#123;</span><br><span class="line">    	if (t.getPId().equals(test.getId()))&#123;</span><br><span class="line">        	if (test.getChildren &#x3D;&#x3D; null)&#123;</span><br><span class="line">            	test.setChildren(new ArrayList&lt;&gt;());</span><br><span class="line">            &#125;</span><br><span class="line">            test.getChildren().add(findChildren(t,list));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>工具类</category>
+      </categories>
+      <tags>
+        <tag>递归</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu中开启Redis服务</title>
+    <url>/2021/04/07/Ubuntu%E4%B8%AD%E5%BC%80%E5%90%AFRedis%E6%9C%8D%E5%8A%A1/</url>
+    <content><![CDATA[<h3 id="Redis服务"><a href="#Redis服务" class="headerlink" title="Redis服务"></a>Redis服务</h3><p>进入redis安装后的默认路径</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd usr&#x2F;local&#x2F;bin</span><br></pre></td></tr></table></figure>
+
+<h4 id="Redis服务启动"><a href="#Redis服务启动" class="headerlink" title="Redis服务启动"></a>Redis服务启动</h4><p>Redis安装后会有redis.conf配置文件，将redis.conf配置文件备份至新存储路径。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">redis-server &#x2F;redis&#x2F;myredis&#x2F;redis.conf   &#x2F;&#x2F;redis-server后为redis.conf备份路径</span><br></pre></td></tr></table></figure>
+<h4 id="Redis服务连接"><a href="#Redis服务连接" class="headerlink" title="Redis服务连接"></a>Redis服务连接</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">redis-cli</span><br></pre></td></tr></table></figure>
+<h4 id="密码验证"><a href="#密码验证" class="headerlink" title="密码验证"></a>密码验证</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">auth 密码</span><br></pre></td></tr></table></figure>
+<p>完整步骤如下：</p>
+<p><img src="/images/pasted-20.png" alt="upload successful"></p>
+]]></content>
+      <categories>
+        <category>Redis</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Test</title>
+    <url>/2020/07/19/Test/</url>
+    <content><![CDATA[<h2 id="使用Hexo和GitHub搭建个人博客"><a href="#使用Hexo和GitHub搭建个人博客" class="headerlink" title="使用Hexo和GitHub搭建个人博客"></a>使用Hexo和GitHub搭建个人博客</h2><h3 id="Hexo-GitHubPages"><a href="#Hexo-GitHubPages" class="headerlink" title="Hexo+GitHubPages"></a>Hexo+GitHubPages</h3><h3 id="默认主题-landscape"><a href="#默认主题-landscape" class="headerlink" title="默认主题(landscape)"></a>默认主题(landscape)</h3>]]></content>
+      <categories>
+        <category>Blog</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2020/07/19/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><a id="more"></a>
+
+<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>Linux常用命令</title>
     <url>/2022/07/04/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<h5 id="Linux关机，重启"><a href="#Linux关机，重启" class="headerlink" title="Linux关机，重启"></a>Linux关机，重启</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 关机</span><br><span class="line">shutdown -h now</span><br><span class="line"># 重启</span><br><span class="line">shutdown -r now</span><br></pre></td></tr></table></figure>
@@ -31,74 +121,34 @@
       </categories>
   </entry>
   <entry>
-    <title>Test</title>
-    <url>/2020/07/19/Test/</url>
-    <content><![CDATA[<h2 id="使用Hexo和GitHub搭建个人博客"><a href="#使用Hexo和GitHub搭建个人博客" class="headerlink" title="使用Hexo和GitHub搭建个人博客"></a>使用Hexo和GitHub搭建个人博客</h2><h3 id="Hexo-GitHubPages"><a href="#Hexo-GitHubPages" class="headerlink" title="Hexo+GitHubPages"></a>Hexo+GitHubPages</h3><h3 id="默认主题-landscape"><a href="#默认主题-landscape" class="headerlink" title="默认主题(landscape)"></a>默认主题(landscape)</h3>]]></content>
+    <title>创建vue项目</title>
+    <url>/2020/08/10/%E5%88%9B%E5%BB%BAvue%E9%A1%B9%E7%9B%AE/</url>
+    <content><![CDATA[<p>cmd中，进入你想放置vue项目的文件夹，执行如下命令  </p>
+<pre><code>vue init webpack [project]      //project为vue项目名称  </code></pre><a id="more"></a>
+
+<p><img src="/images/pasted-5.png" alt="upload successful">  </p>
+<p><img src="/images/pasted-6.png" alt="upload successful"></p>
+<p><img src="/images/pasted-7.png" alt="upload successful"></p>
+<p><img src="/images/pasted-8.png" alt="upload successful"></p>
+<p><img src="/images/pasted-9.png" alt="upload successful"><br>项目创建成功<br><img src="/images/pasted-10.png" alt="upload successful"></p>
+]]></content>
       <categories>
-        <category>Blog</category>
+        <category>前端</category>
       </categories>
   </entry>
   <entry>
-    <title>Git常用命令</title>
-    <url>/2020/09/13/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h2 id="Gitee实现图床"><a href="#Gitee实现图床" class="headerlink" title="Gitee实现图床"></a>Gitee实现图床</h2><p>注册并登录Gitee，新建仓库， 仓库名称可随意命名  </p>
-<a id="more"></a>
-
-<p><img src="/images/pasted-11.png" alt="upload successful"><br>复制图中的地址</p>
-<p><img src="/images/pasted-12.png" alt="upload successful"><br>使用git命令将当前仓库克隆到本地文件夹中（进入当前文件夹的cmd中操作）  </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git clone 复制的地址</span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/pasted-13.png" alt="upload successful"><br>文件夹中会出现此文件</p>
-<p><img src="/images/pasted-14.png" alt="upload successful"><br>依次进行如下操作<br>1、cmd中进入当前文件夹中</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd boom</span><br></pre></td></tr></table></figure>
-<p>2、在boom文件夹中新建images文件夹，将所要上传的图片放入images中后执行如下命令（添加当前目录所有文件到暂存区）</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git add .</span><br></pre></td></tr></table></figure>
-<p>3、执行命令如下（提交暂存区到仓库区）  </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git commit -m &quot;提交注释&quot;</span><br></pre></td></tr></table></figure>
-<p>4、执行命令（上传当前分支到远程仓库）  </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git push</span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/pasted-17.png" alt="upload successful"><br>进入Gitee打开boom仓库，点击服务，Gitee Pages后，部署目录选择存放图片的文件夹，点击启动按钮</p>
-<p><img src="/images/pasted-18.png" alt="upload successful"><br>复制启动后网址（如图中出现的网址），在地址栏中粘贴复制网址加上图片文件名即可查看所存放图片文件。例：<a href="http://mask0117.gitee.io/boom/INFINITY.jpg" target="_blank" rel="noopener">http://mask0117.gitee.io/boom/INFINITY.jpg</a></p>
-<p><img src="/images/pasted-19.png" alt="upload successful"></p>
+    <title>配置本地Git与GitHub的SSH Key</title>
+    <url>/2020/07/20/%E9%85%8D%E7%BD%AE%E6%9C%AC%E5%9C%B0Git%E4%B8%8EGitHub%E7%9A%84SSH-Key/</url>
+    <content><![CDATA[<h2 id="配置SSH-Key"><a href="#配置SSH-Key" class="headerlink" title="配置SSH Key"></a>配置SSH Key</h2><p>  Git安装成功后，在桌面或程序栏中找到 Git Bash 打开，也可在桌面点击鼠  标右键打开 Git Bash<br>  在窗口中输入指令：<br>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C &quot;邮箱地址&quot;  &#x2F;&#x2F;填写你的GitHub注册邮箱</span><br></pre></td></tr></table></figure><br>  <a id="more"></a><br>  根据提示依次操作，可默认直接回车<br>  找到秘钥默认保存位置，在上述回车过程可找到（即 Enter file in which to save the key 选项后面路径）<br>  打开此目录，找到 id_rsa.pub 文件，用记事本打开并复制到粘贴板<br>  登录GitHub，进入主页 -&gt; Settings -&gt; SSH and GPG keys -&gt; New SSH key:  </p>
+<p><img src="/images/pasted-2.png" alt="upload successful"><br>将复制的内容粘贴在 key 栏中，title可任意命名，点击Add SSH Key，保存秘钥</p>
+<p><img src="/images/pasted-3.png" alt="upload successful"><br>上述操作完成后，进入 Git Bash 中，输入下列指令查看是否配置成功</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ ssh -T git@github.com  &#x2F;&#x2F;直接输入此命令，不用更改为自己邮箱地址</span><br></pre></td></tr></table></figure>
+<p>出现以下内容即为配置成功  </p>
+<p><img src="/images/pasted-4.png" alt="upload successful"><br>第一次配置有的可能在输入上个指令后需再输入 yes 后才会出现此内容，but 后的内容可不用理会，为了安全，默认不允许 shell 连接</p>
 ]]></content>
       <categories>
-        <category>Git命令</category>
+        <category>SSH Key</category>
       </categories>
-  </entry>
-  <entry>
-    <title>Ubuntu中开启Redis服务</title>
-    <url>/2021/04/07/Ubuntu%E4%B8%AD%E5%BC%80%E5%90%AFRedis%E6%9C%8D%E5%8A%A1/</url>
-    <content><![CDATA[<h3 id="Redis服务"><a href="#Redis服务" class="headerlink" title="Redis服务"></a>Redis服务</h3><p>进入redis安装后的默认路径</p>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd usr&#x2F;local&#x2F;bin</span><br></pre></td></tr></table></figure>
-
-<h4 id="Redis服务启动"><a href="#Redis服务启动" class="headerlink" title="Redis服务启动"></a>Redis服务启动</h4><p>Redis安装后会有redis.conf配置文件，将redis.conf配置文件备份至新存储路径。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">redis-server &#x2F;redis&#x2F;myredis&#x2F;redis.conf   &#x2F;&#x2F;redis-server后为redis.conf备份路径</span><br></pre></td></tr></table></figure>
-<h4 id="Redis服务连接"><a href="#Redis服务连接" class="headerlink" title="Redis服务连接"></a>Redis服务连接</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">redis-cli</span><br></pre></td></tr></table></figure>
-<h4 id="密码验证"><a href="#密码验证" class="headerlink" title="密码验证"></a>密码验证</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">auth 密码</span><br></pre></td></tr></table></figure>
-<p>完整步骤如下：</p>
-<p><img src="/images/pasted-20.png" alt="upload successful"></p>
-]]></content>
-      <categories>
-        <category>Redis</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>List集合递归转树结构</title>
-    <url>/2022/04/16/List%E9%9B%86%E5%90%88%E9%80%92%E5%BD%92%E8%BD%AC%E6%A0%91%E7%BB%93%E6%9E%84/</url>
-    <content><![CDATA[<h3 id="List转树结构"><a href="#List转树结构" class="headerlink" title="List转树结构"></a>List转树结构</h3><a id="more"></a>
-<p>实体类Test，图中只列举部分属性。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class Test&#123;</span><br><span class="line">	private Integer id;</span><br><span class="line">    private Integer pId;</span><br><span class="line">    private List&lt;Test&gt; children;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>实现代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public List&lt;Test&gt; listToTree(List&lt;Test&gt; list)&#123;</span><br><span class="line">	List&lt;Test&gt; treeList &#x3D; new ArrayList&lt;&gt;();</span><br><span class="line">    List&lt;Test&gt; rootList &#x3D; list.stream.filter(v -&gt; v.getPId() &#x3D;&#x3D; 0).collect(Collectors.toList());  &#x2F;&#x2F;获取集合中根节点，pId为0的数据为根节点。</span><br><span class="line">    rootList.forEach(tree -&gt; treeList.add(findChikdren(tree,list)));</span><br><span class="line">    return treeList;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public Test findChildren(Test test,List&lt;Test&gt; list)&#123;</span><br><span class="line">	for(Test t:list)&#123;</span><br><span class="line">    	if (t.getPId().equals(test.getId()))&#123;</span><br><span class="line">        	if (test.getChildren &#x3D;&#x3D; null)&#123;</span><br><span class="line">            	test.setChildren(new ArrayList&lt;&gt;());</span><br><span class="line">            &#125;</span><br><span class="line">            test.getChildren().add(findChildren(t,list));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>工具类</category>
-      </categories>
-      <tags>
-        <tag>递归</tag>
-      </tags>
   </entry>
   <entry>
     <title>使用 Hexo+GitHub搭建个人博客教程</title>
@@ -135,56 +185,6 @@
 ]]></content>
       <categories>
         <category>Blog</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>创建vue项目</title>
-    <url>/2020/08/10/%E5%88%9B%E5%BB%BAvue%E9%A1%B9%E7%9B%AE/</url>
-    <content><![CDATA[<p>cmd中，进入你想放置vue项目的文件夹，执行如下命令  </p>
-<pre><code>vue init webpack [project]      //project为vue项目名称  </code></pre><a id="more"></a>
-
-<p><img src="/images/pasted-5.png" alt="upload successful">  </p>
-<p><img src="/images/pasted-6.png" alt="upload successful"></p>
-<p><img src="/images/pasted-7.png" alt="upload successful"></p>
-<p><img src="/images/pasted-8.png" alt="upload successful"></p>
-<p><img src="/images/pasted-9.png" alt="upload successful"><br>项目创建成功<br><img src="/images/pasted-10.png" alt="upload successful"></p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2020/07/19/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><a id="more"></a>
-
-<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>配置本地Git与GitHub的SSH Key</title>
-    <url>/2020/07/20/%E9%85%8D%E7%BD%AE%E6%9C%AC%E5%9C%B0Git%E4%B8%8EGitHub%E7%9A%84SSH-Key/</url>
-    <content><![CDATA[<h2 id="配置SSH-Key"><a href="#配置SSH-Key" class="headerlink" title="配置SSH Key"></a>配置SSH Key</h2><p>  Git安装成功后，在桌面或程序栏中找到 Git Bash 打开，也可在桌面点击鼠  标右键打开 Git Bash<br>  在窗口中输入指令：<br>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C &quot;邮箱地址&quot;  &#x2F;&#x2F;填写你的GitHub注册邮箱</span><br></pre></td></tr></table></figure><br>  <a id="more"></a><br>  根据提示依次操作，可默认直接回车<br>  找到秘钥默认保存位置，在上述回车过程可找到（即 Enter file in which to save the key 选项后面路径）<br>  打开此目录，找到 id_rsa.pub 文件，用记事本打开并复制到粘贴板<br>  登录GitHub，进入主页 -&gt; Settings -&gt; SSH and GPG keys -&gt; New SSH key:  </p>
-<p><img src="/images/pasted-2.png" alt="upload successful"><br>将复制的内容粘贴在 key 栏中，title可任意命名，点击Add SSH Key，保存秘钥</p>
-<p><img src="/images/pasted-3.png" alt="upload successful"><br>上述操作完成后，进入 Git Bash 中，输入下列指令查看是否配置成功</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ ssh -T git@github.com  &#x2F;&#x2F;直接输入此命令，不用更改为自己邮箱地址</span><br></pre></td></tr></table></figure>
-<p>出现以下内容即为配置成功  </p>
-<p><img src="/images/pasted-4.png" alt="upload successful"><br>第一次配置有的可能在输入上个指令后需再输入 yes 后才会出现此内容，but 后的内容可不用理会，为了安全，默认不允许 shell 连接</p>
-]]></content>
-      <categories>
-        <category>SSH Key</category>
       </categories>
   </entry>
 </search>
